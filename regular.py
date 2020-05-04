@@ -8,6 +8,7 @@ def is_regular_1(n):
     else:
         return True
 
+
 def is_regular_2(n):
     return True if not list(filter(lambda x: not n % x, range(2, n))) else False
 

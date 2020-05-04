@@ -8,10 +8,10 @@ def autocomplete(input_, dictionary):
     res = []
 
     for i in dictionary:
-        if i.startswith(input_.lower()): 
+        if i.startswith(input_.lower()):
             res.append(i)
 
-        if len(res) == 5: 
+        if len(res) == 5:
             break
 
     return res
@@ -20,11 +20,26 @@ def autocomplete(input_, dictionary):
 if __name__ == "__main__":
     import timeit
 
-    dictionary = ['abnormal', 'arm-wrestling', 'absolute', 'airplane', 'airport', 'amazing', 'apple', 'ball' ]
+    dictionary = [
+        "abnormal",
+        "arm-wrestling",
+        "absolute",
+        "airplane",
+        "airport",
+        "amazing",
+        "apple",
+        "ball",
+    ]
 
-    assert autocomplete("ai", dictionary) == ['airplane','airport']
-    assert autocomplete("a", dictionary) == ['abnormal','arm-wrestling','absolute','airplane','airport']
-    # assert autocomplete("_a$", dictionary) == ['airplane', 'apple', 'air', 'avenue', 'airport'] 
+    assert autocomplete("ai", dictionary) == ["airplane", "airport"]
+    assert autocomplete("a", dictionary) == [
+        "abnormal",
+        "arm-wrestling",
+        "absolute",
+        "airplane",
+        "airport",
+    ]
+    # assert autocomplete("_a$", dictionary) == ['airplane', 'apple', 'air', 'avenue', 'airport']
 
     print("All tests passed!")
 

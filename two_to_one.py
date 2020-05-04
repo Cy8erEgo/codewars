@@ -6,5 +6,8 @@ def longest(s1, s2):
 
 
 assert longest("aretheyhere", "yestheyarehere") == "aehrsty"
-assert longest("loopingisfunbutdangerous", "lessdangerousthancoding") == "abcdefghilnoprstu"
+assert (
+    longest("loopingisfunbutdangerous", "lessdangerousthancoding")
+    == "abcdefghilnoprstu"
+)
 assert longest("inmanylanguages", "theresapairoffunctions") == "acefghilmnoprstuy"
