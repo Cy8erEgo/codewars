@@ -4,12 +4,12 @@ import re
 
 
 def autocomplete(input_, dictionary):
-    pattern = re.compile(r"[a-zA-Z]+(?:(?:\-|\s)[a-zA-Z]+)?|$")
-    input_ = re.findall(pattern, input_)[0].lower()
+    pattern = re.compile(r"[a-zA-Z]+(?:(?:\-|\s)[a-zA-Z]+)?")
+    input_ = "".join(re.findall(pattern, input_)).lower()
     res = []
 
     for i in dictionary:
-        i = re.findall(pattern, i)[0]
+        i = "".join(re.findall(pattern, i))
 
         if i.lower().startswith(input_): 
             res.append(i)
