@@ -4,14 +4,17 @@ import re
 
 
 def autocomplete(input_, dictionary):
-    input_ = "".join(re.findall(r"[a-zA-Z\-]", input_))
+    pattern = re.compile(r"[a-zA-Z]+(?:(?:\-|\s)[a-zA-Z]+)?")
+    input_ = "".join(re.findall(pattern, input_))
     res = []
 
     for i in dictionary:
-        if i.startswith(input_.lower()):
+        i = "".join(re.findall(pattern, i))
+
+        if i.lower().startswith(input_.lower()): 
             res.append(i)
 
-        if len(res) == 5:
+        if len(res) == 5: 
             break
 
     return res
@@ -39,7 +42,6 @@ if __name__ == "__main__":
         "airplane",
         "airport",
     ]
-    # assert autocomplete("_a$", dictionary) == ['airplane', 'apple', 'air', 'avenue', 'airport']
 
     print("All tests passed!")
 
