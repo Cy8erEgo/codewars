@@ -4,18 +4,18 @@ import re
 
 
 def autocomplete(input_, dictionary):
-    pattern = re.compile(r"[a-zA-Z]+(?:(?:\-|\s)[a-zA-Z]+)?")
-    input_ = "".join(re.findall(pattern, input_))
+    pattern = re.compile(r"[a-zA-Z]+(?:(?:\-|\s)[a-zA-Z]+)?|$")
+    input_ = re.findall(pattern, input_)[0].lower()
     res = []
 
     for i in dictionary:
-        i = "".join(re.findall(pattern, i))
+        i = re.findall(pattern, i)[0]
 
-        if i.lower().startswith(input_.lower()): 
+        if i.lower().startswith(input_): 
             res.append(i)
 
-        if len(res) == 5: 
-            break
+            if len(res) == 5: 
+                break
 
     return res
 
