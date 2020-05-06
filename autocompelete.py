@@ -9,8 +9,6 @@ def autocomplete(input_, dictionary):
     res = []
 
     for i in dictionary:
-        i = "".join(re.findall(pattern, i))
-
         if i.lower().startswith(input_): 
             res.append(i)
 
